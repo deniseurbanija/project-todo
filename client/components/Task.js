@@ -12,32 +12,7 @@ import { useRef, useState } from "react";
 import "react-native-gesture-handler";
 import SharedTodoModalContent from "./SharedTodoModalContent";
 import TodoModalContent from "./TodoModalContent";
-
-function CheckMark({ id, completed, toggleTodo }) {
-  async function toggle() {
-    const response = await fetch(`http://192.168.1.86:8080/todos/${id}`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "PUT",
-      body: JSON.stringify({
-        value: completed ? false : true,
-      }),
-    });
-    const data = await response.json();
-    toggleTodo(id);
-    console.log(data);
-  }
-  return (
-    <Pressable
-      onPress={toggle}
-      style={[
-        styles.checkMark,
-        { backgroundColor: completed === 0 ? "#E9E9EF" : "#86ba90" },
-      ]}
-    ></Pressable>
-  );
-}
+import CheckMark from "./CheckMark";
 
 export default function Task({
   id,
@@ -149,11 +124,6 @@ const styles = StyleSheet.create({
     letterSpacing: -0.011 * 16, // 16 = baseFontSize
     flexShrink: 1,
     marginHorizontal: 8,
-  },
-  checkMark: {
-    width: 20,
-    height: 20,
-    borderRadius: 7,
   },
   deleteButton: {
     position: "absolute",
