@@ -53,7 +53,18 @@ export default function Task({
     >
       <View style={styles.containerTextCheckBox}>
         <CheckMark id={id} completed={completed} toggleTodo={toggleTodo} />
-        <Text style={styles.text}>{title}</Text>
+        <Text
+          style={
+            completed === 1
+              ? [
+                  styles.text,
+                  { textDecorationLine: "line-through", color: "#B4B4B8" },
+                ]
+              : styles.text
+          }
+        >
+          {title}
+        </Text>
       </View>
       {shared_with_id !== null ? (
         <Feather

@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet } from "react-native";
+import { Entypo } from "@expo/vector-icons";
 
 export default function CheckMark({ id, completed, toggleTodo }) {
   async function toggle() {
@@ -18,18 +19,32 @@ export default function CheckMark({ id, completed, toggleTodo }) {
   return (
     <Pressable
       onPress={toggle}
-      style={[
-        styles.checkMark,
-        { backgroundColor: completed === 0 ? "#E9E9EF" : "#86ba90" },
-      ]}
-    ></Pressable>
+      style={completed === 1 ? styles.checked : styles.unChecked}
+    >
+      {completed === 1 && <Entypo name="check" size={15} color="#FAFAFA" />}
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  checkMark: {
+  checked: {
     width: 20,
     height: 20,
     borderRadius: 7,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 13,
+    marginLeft: 15,
+    backgroundColor: "#86ba90",
+  },
+  unChecked: {
+    width: 20,
+    height: 20,
+    borderRadius: 7,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 13,
+    marginLeft: 15,
+    backgroundColor: "#E9E9EF",
   },
 });

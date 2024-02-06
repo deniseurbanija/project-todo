@@ -29,8 +29,11 @@ INSERT INTO shared_todos (todo_id, user_id)
 VALUES (1, 2);
 
 -- Insert two users into the users table
-INSERT INTO users (name, email, password) VALUES ('Beto', 'user1@example.com', 'password1');
-INSERT INTO users (name, email, password) VALUES ('Alberto', 'user2@example.com', 'password2');
+INSERT INTO users (name, email, password) VALUES ('Denise', 'denise@gmail.com', 'password');
+INSERT INTO users (name, email, password) VALUES ('Milena', 'milena@gmail.com', 'password');
+INSERT INTO users (name, email, password) VALUES ('Georgina', 'georgina@gmail.com', 'password');
+INSERT INTO users (name, email, password) VALUES ('Lucas', 'lucas@gmail.com', 'password');
+INSERT INTO users (name, email, password) VALUES ('Alejo', 'alejo@gmail.com', 'password');
 
 -- Insert todos into the todos table, associated with the first user
 INSERT INTO todos (title, user_id) 
